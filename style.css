@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  font-family: "TikTok Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0, "wdth" 100;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #000;
+  color: #fff;
+  margin-right: 300px;
+}
+
+/* animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  to { background-position: 200% center; }
+}
+
+/* shared styles */
+section:first-of-type > div,
+aside li {
+  transition: all 0.3s ease;
+  border-radius: 16px;
+}
+
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: #60a5fa;
+  border-bottom-color: #60a5fa;
+}
+
+/* hero */
+section:first-of-type {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at top, #1e3a8a, #000 70%);
+  padding: 80px 40px;
+  position: relative;
+  text-align: center;
+}
+
+section:first-of-type::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.4), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.4), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.2), transparent 50%);
+  animation: pulse 8s ease infinite;
+}
+
+h1 {
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 200;
+  letter-spacing: -4px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 300;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+}
+
+section:first-of-type > div {
+  max-width: 700px;
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+section:first-of-type > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+section:first-of-type a {
+  color: #60a5fa;
+}
+
+/* content */
+section:first-of-type ~ div:first-of-type {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 200px 40px 120px;
+}
+
+section:first-of-type ~ div:first-of-type > div {
+  margin-bottom: 80px;
+}
+
+h3 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 300;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #3b82f6, #a855f7, #ec4899, #3b82f6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s linear infinite;
+}
+
+p {
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+abbr {
+  border-bottom: 1px dotted #3b82f6;
+  text-decoration: none;
+}
+
+/* sidebar */
+aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+aside h3 {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #3b82f6;
+  margin: 32px 0 12px;
+}
+
+aside h3:first-of-type {
+  margin-top: 0;
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside li {
+  margin-bottom: 4px;
+  padding: 12px;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+aside li:hover {
+  background: rgba(59, 130, 246, 0.15);
+  transform: translateX(-5px) scale(1.02);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+aside li > a:first-child {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+aside li > a:last-child {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* footer */
+footer {
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+footer a {
+  margin: 0 16px;
+  color: #6b7280;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+footer a:hover {
+  color: #3b82f6;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  body {
+    margin-right: 0;
+  }
+  
+  aside {
+    display: none;
+  }
+}
